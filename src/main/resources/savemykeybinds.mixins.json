@@ -1,0 +1,15 @@
+{
+	"required": true,
+	"package": "wtf.cheeze.smkb.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"mixins": [
+		"KeybindsScreenMixin",
+		"KeybindsScreenAccessor",
+		"ControllingKeybindsScreenMixin",
+		"ControllingKeybindsScreenAccessor"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"plugin": "com.moulberry.mixinconstraints.ConstraintsMixinPlugin"
+}

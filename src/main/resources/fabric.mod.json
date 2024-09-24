@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "savemykeybinds",
+	"version": "${version}",
+	"name": "SaveMyKeybinds",
+	"description": "Allows you to save and load Keybind presets.",
+	"authors": [
+		"MisterCheezeCake"
+	],
+	"contact": {
+		"homepage": "https://modrinth.com/mod/savemykeybinds",
+		"sources": "https://github.com/MisterCheezeCake/SaveMyKeybinds",
+		"issues": "https://github.com/MisterCheezeCake/SaveMyKeybinds/issues"
+	},
+
+	"license": "LGPL-3.0-or-later",
+	"icon": "assets/savemykeybinds/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"wtf.cheeze.smkb.SaveMyKeybinds"
+		]
+	},
+	"mixins": [
+		"savemykeybinds.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21",
+		"java": ">=21"
+	},
+	"custom" : {
+		"modmenu": {
+			"links": {
+				"modmenu.discord": "https://discord.gg/YH3hw926hz"
+			}
+		}
+	}
+
+}
