@@ -46,9 +46,6 @@ public class SaveMyKeybinds implements ModInitializer {
 		}
 	}
 
-	public static void sendToast(String title, String message) {
-		sendToast(Text.literal(title), Text.literal(message));
-	}
 	public static void sendToast(Text title, Text message) {
 		MinecraftClient.getInstance().getToastManager().add(new SystemToast(SystemToast.Type.PERIODIC_NOTIFICATION, title, message));
 	}

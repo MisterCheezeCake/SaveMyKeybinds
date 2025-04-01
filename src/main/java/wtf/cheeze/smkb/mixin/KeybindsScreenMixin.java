@@ -40,7 +40,6 @@ public abstract class KeybindsScreenMixin {
 	private void addCustomButton(CallbackInfo ci, @Local DirectionalLayoutWidget widget) {
 		widget.add(SavePresetScreen.getButton());
 		widget.add(LoadPresetScreen.getButton());
-		SaveMyKeybinds.LOGGER.info("Added custom buttons");
 	}
 	@Inject(method = "initFooter", at = @At("TAIL"))
 	private void addCustomButton2(CallbackInfo ci, @Local DirectionalLayoutWidget widget) {

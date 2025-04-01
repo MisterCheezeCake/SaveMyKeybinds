@@ -36,13 +36,13 @@ public class LoadPresetScreen extends SMKBScreen {
     private final ButtonWidget loadButton;
 
     public LoadPresetScreen(Screen parent) {
-        super(Text.literal("Load Presets"), parent);
+        super(Text.translatable("smkb.screen.loadPresets"), parent);
         this.listWidget = new ListWidget(
                 MinecraftClient.getInstance(),
                 MinecraftClient.getInstance().getWindow().getScaledWidth(),
                 (int) (SMKBScreen.screenHeight() * 0.75f) - 25, 25, 20);
         int h = (int) (SMKBScreen.screenHeight() * 0.8f);
-        this.deleteButton = ButtonWidget.builder(Text.literal("Delete"), button -> {
+        this.deleteButton = ButtonWidget.builder(Text.translatable("smkb.screen.delete"), button -> {
             var t = listWidget.getSelectedOrNull();
             if (t == null) return;
             PresetManager.deletePreset(t.text);
@@ -50,7 +50,7 @@ public class LoadPresetScreen extends SMKBScreen {
 
         }).dimensions(centerX() - 160 ,h,150,20).build();
 
-        this.loadButton = ButtonWidget.builder(Text.literal("Load"), button -> {
+        this.loadButton = ButtonWidget.builder(Text.translatable("smkb.screen.load"), button -> {
             var t = listWidget.getSelectedOrNull();
             if (t == null) return;
 
@@ -85,7 +85,7 @@ public class LoadPresetScreen extends SMKBScreen {
     }
 
     public static ButtonWidget getButton() {
-        return ButtonWidget.builder(Text.literal("Load Presets"), button -> {
+        return ButtonWidget.builder(Text.translatable("smkb.screen.loadPresets"), button -> {
             MinecraftClient.getInstance().setScreen(new LoadPresetScreen(MinecraftClient.getInstance().currentScreen));
         }).width(74).build();
     }

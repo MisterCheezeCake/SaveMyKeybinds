@@ -23,7 +23,9 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import org.intellij.lang.annotations.Language;
 import wtf.cheeze.smkb.SaveMyKeybinds;
 import wtf.cheeze.smkb.preset.PresetManager;
@@ -42,16 +44,16 @@ public class SavePresetScreen extends SMKBScreen {
 
 
     public SavePresetScreen(Screen parent) {
-        super(Text.literal("Save Presets"), parent);
+        super(Text.translatable("smkb.screen.savePresets"), parent);
         this.nameWidget = new TextFieldWidget(MinecraftClient.getInstance().textRenderer, centerX() - 150, 40, 300, 20, Text.literal("Preset"));
         this.saveWidget = ButtonWidget.builder(Text.literal("Save"), (button) -> {
             var t = nameWidget.getText();
             if (t.isBlank()) {
-                SaveMyKeybinds.sendToast("Invalid Preset Name", "Preset name cannot be empty");
+                SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.invalid.empty.title").formatted(Formatting.RED), Text.translatable("smkb.toast.invalid.empty.body"));
                 return;
             }
             if (FORBIDDEN_CHARS_PATTERN.matcher(t).find()) {
-                SaveMyKeybinds.sendToast("Invalid Preset Name", "Preset name cannot contain any of the following characters: \\/:*?\"<>|");
+                SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.invalid.special.title").formatted(Formatting.RED), Text.translatable("smkb.toast.invalid.special.body"));
                 return;
             }
                     if (PresetManager.savePreset(t) != 0) {
@@ -72,11 +74,11 @@ public class SavePresetScreen extends SMKBScreen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-        context.drawCenteredTextWithShadow(textRenderer, Text.literal("Enter Preset Name"), centerX(), 27, 0xbbbbbb);
+        context.drawCenteredTextWithShadow(textRenderer, Text.translatable("smkb.screen.enterName"), centerX(), 27, 0xbbbbbb);
     }
 
     public static ButtonWidget getButton() {
-        return ButtonWidget.builder(Text.literal("Save Presets"), button -> {
+        return ButtonWidget.builder(Text.translatable("smkb.screen.savePresets"), button -> {
             MinecraftClient.getInstance().setScreen(new SavePresetScreen(MinecraftClient.getInstance().currentScreen));
         }).width(74).build();
     }

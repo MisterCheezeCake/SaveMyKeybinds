@@ -1,5 +1,5 @@
 plugins {
-	id 'fabric-loom' version '1.7-SNAPSHOT'
+	id 'fabric-loom' version '1.10-SNAPSHOT'
 	id 'maven-publish'
 }
 
@@ -42,6 +42,7 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 	modImplementation("maven.modrinth:controlling:AfdAiHU4")
 	modImplementation("maven.modrinth:searchables:sxC8II3c")
+//	modImplementation("maven.modrinth:amecs-reborn:2.0.0")
 	include(implementation("com.moulberry:mixinconstraints:1.0.1"))
 
 	

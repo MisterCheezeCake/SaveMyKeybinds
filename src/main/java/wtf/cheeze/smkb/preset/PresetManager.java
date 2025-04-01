@@ -22,6 +22,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.util.InputUtil;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import wtf.cheeze.smkb.SaveMyKeybinds;
 
 import java.io.FileWriter;
@@ -40,10 +42,10 @@ public class PresetManager {
             FileWriter writer = new FileWriter(presetFile.toFile());
             writer.write(GSON.toJson(preset));
             writer.close();
-            SaveMyKeybinds.sendToast("§aPreset Saved", "Saved Preset " + name);
+            SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.save.success.title").formatted(Formatting.GREEN), Text.translatable("smkb.toast.save.success.body", name));
         } catch (Exception e) {
             SaveMyKeybinds.LOGGER.error("Failed to write preset file", e);
-            SaveMyKeybinds.sendToast("Error Saving Preset", "Preset" + name + " could not be saved due to an error");
+            SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.save.failure.title").formatted(Formatting.RED), Text.translatable("smkb.toast.save.failure.body", name));
             return 0;
         }
         return 1;
@@ -60,10 +62,10 @@ public class PresetManager {
                     keybinding.setBoundKey(InputUtil.fromTranslationKey(presetBinding.key));
                 }
             }
-            SaveMyKeybinds.sendToast("§aPreset Loaded", "Loaded Preset " + name);
+        SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.load.success.title").formatted(Formatting.GREEN), Text.translatable("smkb.toast.load.success.body", name));
         } catch (Exception e) {
             SaveMyKeybinds.LOGGER.error("Failed to read preset file", e);
-            SaveMyKeybinds.sendToast("Error Loading Preset", "Preset" + name + " could not be loaded due to an error");
+            SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.load.failure.title").formatted(Formatting.RED), Text.translatable("smkb.toast.load.failure.body", name));
             return 0;
         }
         return 1;
@@ -73,10 +75,10 @@ public class PresetManager {
         try {
             Path presetFile = SaveMyKeybinds.FOLDER_PATH.resolve(name + ".preset.json");
             Files.delete(presetFile);
-            SaveMyKeybinds.sendToast("§aPreset Deleted", "Deleted Preset " + name);
+            SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.delete.success.title").formatted(Formatting.GREEN), Text.translatable("smkb.toast.delete.success.body", name));
         } catch (Exception e) {
             SaveMyKeybinds.LOGGER.error("Failed to delete preset file", e);
-            SaveMyKeybinds.sendToast("Error Deleting Preset", "Preset" + name + " could not be deleted due to an error");
+            SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.delete.failure.title").formatted(Formatting.RED), Text.translatable("smkb.toast.delete.failure.body", name));
             return 0;
         }
         return 1;

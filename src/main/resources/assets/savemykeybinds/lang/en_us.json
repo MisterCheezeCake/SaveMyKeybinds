@@ -1,0 +1,24 @@
+{
+  "smkb.toast.save.success.title": "Saved Preset",
+  "smkb.toast.save.success.body": "Saved preset %s",
+  "smkb.toast.save.failure.title": "Error Saving Preset",
+  "smkb.toast.save.failure.body": "Preset %s could not be saved due to an error",
+  "smkb.toast.load.success.title": "Loaded Preset",
+  "smkb.toast.load.success.body": "Loaded preset %s",
+  "smkb.toast.load.failure.title": "Error Loading Preset",
+  "smkb.toast.load.failure.body": "Preset %s could not be loaded due to an error",
+  "smkb.toast.delete.success.title": "Deleted Preset",
+  "smkb.toast.delete.success.body": "Deleted preset %s",
+  "smkb.toast.delete.failure.title": "Error Deleting Preset",
+  "smkb.toast.delete.failure.body": "Preset %s could not be deleted due to an error",
+  "smkb.toast.invalid.empty.title": "Invalid Preset Name",
+  "smkb.toast.invalid.empty.body": "Preset name cannot be empty",
+  "smkb.toast.invalid.special.title": "Invalid Preset Name",
+  "smkb.toast.invalid.special.body": "Preset name cannot contain any of the following characters: \\/:*?\"<>|",
+  "smkb.screen.enterName": "Enter Preset Name",
+  "smkb.screen.savePresets": "Save Presets",
+  "smkb.screen.delete": "Delete",
+  "smkb.screen.loadPresets": "Load Presets",
+  "smkb.screen.load": "Load"
+
+}
