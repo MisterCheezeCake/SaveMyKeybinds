@@ -21,18 +21,31 @@ package wtf.cheeze.smkb.preset;
 import net.minecraft.client.MinecraftClient;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class Preset {
     /**
-     * A version number for the preset file, currently always 1
+     * A version number for the preset file. V1 is the original version, V2 is the
+     * new version that supports modifiers. They are fully backwards compatible and partially
+     * forwards compatible, mod version 1.0.0 will be able to read V2 presets, but will always
+     * treat them with strict mode disabled and without modifiers, since it has no knowledge of those features.
      */
-    public int version = 1;
+    public int version = 2;
 
-    public HashMap<String, Keybind> keybinds = new HashMap<>();
+    /**
+     * Whether the preset is strict or not. If it's strict, it will unbind any key
+     * not found within it.
+     */
+    public boolean strict = false;
+
+    /**
+     * A map of the translation key of the keybinding to the keybind object
+     */
+    public Map<String, Keybind> keybinds = new HashMap<>();
 
 
     public Preset() {
-
         for (var keybinding: MinecraftClient.getInstance().options.allKeys) {
             keybinds.put(keybinding.getTranslationKey(), new Keybind(keybinding.getBoundKeyTranslationKey()));
         }
@@ -43,9 +56,14 @@ public class Preset {
      */
     public static class Keybind {
         public String key;
+        public Set<Modifier> modifiers = Set.of();
 
         public Keybind(String key) {
             this.key = key;
+        }
+        public Keybind(String key, Set<Modifier> modifiers) {
+            this.key = key;
+            this.modifiers = modifiers;
         }
     }
 }

@@ -60,6 +60,8 @@ public class PresetManager {
                 var presetBinding = preset.keybinds.get(keybinding.getTranslationKey());
                 if (presetBinding != null) {
                     keybinding.setBoundKey(InputUtil.fromTranslationKey(presetBinding.key));
+                } else if (preset.strict) {
+                    keybinding.setBoundKey(InputUtil.UNKNOWN_KEY);
                 }
             }
         SaveMyKeybinds.sendToast(Text.translatable("smkb.toast.load.success.title").formatted(Formatting.GREEN), Text.translatable("smkb.toast.load.success.body", name));
