@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 MisterCheezeCake
+ * Copyright (C) 2024–2026 MisterCheezeCake
  *
  * This file is part of SaveMyKeybinds.
  *
@@ -21,6 +21,7 @@ package wtf.cheeze.smkb;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.toast.SystemToast;
 import net.minecraft.text.Text;
 import org.slf4j.Logger;
@@ -48,5 +49,13 @@ public class SaveMyKeybinds implements ModInitializer {
 
 	public static void sendToast(Text title, Text message) {
 		MinecraftClient.getInstance().getToastManager().add(new SystemToast(SystemToast.Type.PERIODIC_NOTIFICATION, title, message));
+	}
+
+	public static String getTranslationKey(KeyBinding bind) {
+		//? if <1.21.10 {
+		/*return bind.getTranslationKey();
+		 *///?} else {
+		return bind.getId();
+		//?}
 	}
 }

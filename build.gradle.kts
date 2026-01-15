@@ -1,6 +1,6 @@
 
 plugins {
-	id("fabric-loom") version "1.10-SNAPSHOT"
+	id("fabric-loom") version "1.14-SNAPSHOT"
 }
 
 
@@ -47,7 +47,7 @@ tasks.processResources {
 	inputs.property("version", project.version)
 
 	filesMatching("fabric.mod.json") {
-		expand("version" to project.version)
+		expand(mapOf("version" to project.version, "support_range" to project.property("support_range")))
 	}
 }
 

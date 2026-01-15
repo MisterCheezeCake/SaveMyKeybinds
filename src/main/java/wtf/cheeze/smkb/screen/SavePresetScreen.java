@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 MisterCheezeCake
+ * Copyright (C) 2024–2026 MisterCheezeCake
  *
  * This file is part of SaveMyKeybinds.
  *
@@ -8,7 +8,7 @@
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
  *
- * SkyblockTweaks is distributed in the hope that it will be useful,
+ * SaveMyKeybinds is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
@@ -23,6 +23,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.client.resource.language.I18n;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -61,6 +62,7 @@ public class SavePresetScreen extends SMKBScreen {
                     }
         }).dimensions(centerX() - 100, 70, 200, 20)
                 .build();
+        this.addDrawableChild(new CenteredTextWidget(Text.translatable("smkb.screen.enterName"), 27));
     }
 
 
@@ -74,7 +76,7 @@ public class SavePresetScreen extends SMKBScreen {
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
-        context.drawCenteredTextWithShadow(textRenderer, Text.translatable("smkb.screen.enterName"), centerX(), 27, 0xbbbbbb);
+       // context.drawCenteredTextWithShadow(textRenderer, Text.translatable("smkb.screen.enterName"), centerX(), 27, 0xbbbbbb);
     }
 
     public static ButtonWidget getButton() {

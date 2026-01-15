@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 MisterCheezeCake
+ * Copyright (C) 2024–2026 MisterCheezeCake
  *
  * This file is part of SaveMyKeybinds.
  *
@@ -8,7 +8,7 @@
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
  *
- * SkyblockTweaks is distributed in the hope that it will be useful,
+ * SaveMyKeybinds is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
@@ -22,6 +22,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.AlwaysSelectedEntryListWidget;
 import net.minecraft.text.Text;
+import wtf.cheeze.smkb.SaveMyKeybinds;
 import wtf.cheeze.smkb.preset.PresetManager;
 
 public class ListWidget extends AlwaysSelectedEntryListWidget<ListWidget.Entry> {
@@ -50,20 +51,38 @@ public class ListWidget extends AlwaysSelectedEntryListWidget<ListWidget.Entry> 
         }
 
 
-        @Override
+
+        //?if <1.21.10 {
+        /*@Override
         public void render(DrawContext context, int index, int y, int x, int entryWidth, int entryHeight, int mouseX, int mouseY, boolean hovered, float tickDelta) {
             context.drawCenteredTextWithShadow(
                     MinecraftClient.getInstance().textRenderer,
                     text,
                     SMKBScreen.centerX(),
                     y + 3,
-                    !hovered && !isFocused() ? 0xC0C0C0: 0xFFFFFF
+                    !hovered && !isFocused() ? 0xFFC0C0C0: 0xFFFFFFFF
             );
         }
+        *///? } else {
+        @Override
+        public void render(DrawContext context, int mouseX, int mouseY, boolean hovered, float deltaTicks) {
+            context.drawCenteredTextWithShadow(
+                    MinecraftClient.getInstance().textRenderer,
+                    text,
+                    SMKBScreen.centerX(),
+                    getY() + 3,
+                    !hovered && !isFocused() ? 0xFFC0C0C0: 0xFFFFFFFF
+            );
+        }
+        //?}
+
+
 
         @Override
         public Text getNarration() {
-            return Text.of(text);
+            return Text.literal(text);
         }
+
+
     }
 }

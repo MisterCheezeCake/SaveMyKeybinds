@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 MisterCheezeCake
+ * Copyright (C) 2024–2026 MisterCheezeCake
  *
  * This file is part of SaveMyKeybinds.
  *
@@ -8,7 +8,7 @@
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
  *
- * SkyblockTweaks is distributed in the hope that it will be useful,
+ * SaveMyKeybinds is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
@@ -19,6 +19,7 @@
 package wtf.cheeze.smkb.preset;
 
 import net.minecraft.client.MinecraftClient;
+import wtf.cheeze.smkb.SaveMyKeybinds;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class Preset {
 
     public Preset() {
         for (var keybinding: MinecraftClient.getInstance().options.allKeys) {
-            keybinds.put(keybinding.getTranslationKey(), new Keybind(keybinding.getBoundKeyTranslationKey()));
+            keybinds.put(SaveMyKeybinds.getTranslationKey(keybinding), new Keybind(keybinding.getBoundKeyTranslationKey()));
         }
     }
 

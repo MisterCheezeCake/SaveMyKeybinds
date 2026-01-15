@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 MisterCheezeCake
+ * Copyright (C) 2024–2026 MisterCheezeCake
  *
  * This file is part of SaveMyKeybinds.
  *
@@ -8,7 +8,7 @@
  * License as published by the Free Software Foundation, either
  * version 3 of the License, or (at your option) any later version.
  *
- * SkyblockTweaks is distributed in the hope that it will be useful,
+ * SaveMyKeybinds is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
  * Lesser General Public License for more details.
@@ -22,6 +22,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
+import net.minecraft.client.gui.widget.TextWidget;
 import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
 
@@ -36,6 +37,7 @@ public abstract class SMKBScreen extends Screen {
         this.doneButton = ButtonWidget.builder(ScreenTexts.DONE, (b) -> {
             this.close();
         }).dimensions(centerX() - 100, (int) (screenHeight() * 0.9), 200, 20).build();
+        this.addDrawableChild(new CenteredTextWidget(title, 10));
     }
 
     @Override
@@ -47,7 +49,7 @@ public abstract class SMKBScreen extends Screen {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
 
         super.render(context, mouseX, mouseY, delta);
-        context.drawCenteredTextWithShadow(textRenderer, title, centerX(), 10, 0xffffff);
+      //  context.drawCenteredTextWithShadow(textRenderer, title, centerX(), 10, 0xffffff);
 
     }
 
